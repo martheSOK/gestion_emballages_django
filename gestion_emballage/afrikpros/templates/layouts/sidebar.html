@@ -1,0 +1,73 @@
+{% load static %}
+<div id="kt_app_sidebar" class="app-sidebar primary flex-column " data-kt-drawer="true" data-kt-drawer-name="app-sidebar"
+    data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="300px"
+    data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+
+    <div class="app-sidebar-header flex-column mx-10 pt-8" id="kt_app_sidebar_header">
+        <!--begin::Brand-->
+        <div class="d-flex flex-stack d-none d-lg-flex mb-13">
+            <!--begin::Logo-->
+            <a href="#" class="app-sidebar-logo">
+                <img alt="Logo" src="{% static 'assets/media/logos/logo.png' %}"
+                    class="app-sidebar-logo-default" width="70px"/>
+            </a>
+            <a href="#" class="app-sidebar-logo">
+                <img src="{% static 'assets/media/svg/logout.svg' %}" alt="" width="50px">
+            </a>
+        </div>
+    </div>
+    <div class="app-sidebar-navs flex-column-fluid pb-6" id="kt_app_sidebar_navs">
+        <div id="kt_app_sidebar_navs_wrappers" class="hover-scroll-y my-2 mx-4" data-kt-scroll="true"
+            data-kt-scroll-activate="true" data-kt-scroll-height="auto"
+            data-kt-scroll-dependencies="#kt_app_sidebar_header" data-kt-scroll-wrappers="#kt_app_sidebar_navs"
+            data-kt-scroll-offset="5px">
+
+            <!--begin::Sidebar menu-->
+            <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
+                class="menu menu-column menu-rounded menu-sub-indention menu-active-bg mb-7">
+
+                <!--begin:Menu item-->
+                <div class="menu-item pt-5"><!--begin:Menu content-->
+                    <div class="menu-content"><span class="menu-heading fw-bold text-white text-uppercase fs-5">Utilisateurs</span>
+                    </div>
+                </div>
+                <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="#">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-chart-line-star fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span></i></span>
+                            <span class="menu-title">Tableau de bord</span>
+                        </a>
+                </div>
+                <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="#">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-chart-line-star fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span></i></span>
+                            <span class="menu-title">Employés</span>
+                        </a>
+                </div>
+                <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="#">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-chart-line-star fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span></i></span>
+                            <span class="menu-title">Caisses</span>
+                        </a>
+                </div>
+                <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="#">
+                    <span class="menu-icon">
+                        <i class="ki-duotone ki-chart-line-star fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                            <span class="path3"></span></i></span>
+                            <span class="menu-title">Clients</span>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
