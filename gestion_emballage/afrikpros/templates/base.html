@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Les Pros</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Favicon-->
+    {% block style %}{% endblock style %}
+    <!-- project css file  -->
+    <link rel="stylesheet" href="{% static 'emile/assets/css/my-task.style.min.css' %}" />
+  </head>
+  <body>
+    <div id="mytask-layout" class="theme-indigo">
+      <!-- sidebar -->
+         {% include "./layouts/sidebar.html" %} 
+      <div class="main px-lg-4 px-md-4">
+        <!-- Body: Header -->
+      {% include "./layouts/header.html" %} 
+       <!-- Body: Body -->
+        <div class="body d-flex py-3">
+          
+
+          {% block conteneur %}{% endblock conteneur %}
+        </div>
+
+        <!-- Modal Members-->
+        {% block modal %}{% endblock modal %}
+      </div>
+    </div>
+
+    <!-- Jquery Core Js -->
+     <script src="{% static 'assets/bundles/libscripts.bundle.js' %}"></script>
+    
+    <!-- Plugin Js-->
+    
+
+    <!-- Jquery Page Js -->
+  
+
+  
+
+    {% block script %}
+    
+    {% endblock script %}
+  </body>
+</html>
