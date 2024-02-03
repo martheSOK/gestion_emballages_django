@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block conteneur %}
+
+<div>
+    <div class="row align-items-center">
+        <div class="border-0 mb-4">
+            <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                <h3 class="fw-bold mb-0">Listes des dépots</h3>
+                <div class="col-auto d-flex w-sm-100">
+                    <button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd"><i class="icofont-plus-circle me-2 fs-6"></i>Ajouter dépot</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Row end  -->
+</div>
+<div class="row g-3 mb-3 mt-3">
+    {% for depot in listedepot %}
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mt-5">
+                        <div class="lesson_name">
+                            <div class="project-block light-info-bg">
+                                <i class="icofont-paint"></i>
+                            </div>
+                            <span class="small text-muted project_name fw-bold"> {{depot}} </span>
+                            <h6 class="mb-0 fw-bold  fs-6  mb-2">{{depot}}</h6>
+                        </div>
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock conteneur %}

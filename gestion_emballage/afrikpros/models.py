@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 
 class User(models.Model):
-    nom=models.CharField(),
-    prenom=models.CharField(),
-    contact=models.IntegerField(),
-    adresse=models.CharField(),
+    nom=models.CharField(max_length=50,null=True)
+    prenom=models.CharField(max_length=50,null=True)
+    contact=models.IntegerField( null=True)
+    adresse=models.CharField(max_length=50, null=True)
 
 
     def __str__(self):
@@ -18,9 +18,9 @@ class User(models.Model):
 
 
 class Echange(models.Model):
-    quantite_echange=models.IntegerField(),
-    type=models.CharField(),
-    description=models.CharField(),
+    quantite_echange=models.IntegerField()
+    type=models.CharField(max_length=50)
+    description=models.CharField(max_length=50)
 
     def __str__(self):
         return self.quantite_echange + self.type + self.description
@@ -32,23 +32,23 @@ class Echange(models.Model):
 
 
 class Depot(models.Model):
-    nom_depot=models.CharField(),
+    nomdepot=models.CharField(max_length=50)
     
 
     def __str__(self):
-        return self.nom_depot 
+        return self.nomdepot 
 
 
 class Fournisseur(models.Model):
-    nom_fournisseur=models.CharField(),
+    nom_fournisseur=models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.nom_fournisseur
 
 
 class Emballage(models.Model):
-    designation=models.CharField(),
-    quantite=models.IntegerField(),
+    designation=models.CharField(max_length=50, null=True)
+    quantite=models.IntegerField(null=True)
     echange_externe=models.ManyToManyField(Fournisseur)
 
     def __str__(self):
@@ -61,3 +61,4 @@ class Personne(User):
 
 
 
+    
