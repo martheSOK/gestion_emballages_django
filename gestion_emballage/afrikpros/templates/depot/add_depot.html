@@ -1,63 +1,29 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block conteneur %}
-
-<form action="#" method="post">
-{% csrf_token %}
-
-{{form.nomdepot}}
-
-
-<button type="submit">valider</button>
-
-</form>
-
- {% comment %} <div class="modal fade" id="tickadd" tabindex="-1"  aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+<form action="{% if depot.id %}{% url 'afrikpros:update_depot' depot.id %}{% else %}# {% endif %}" method="post">
+    {% csrf_token %}
+    <div class="modal fade" id="tickadd" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Tickit Add</h5>
+                    <h5 class="modal-title  fw-bold" id="leaveaddLabel">ajouter depot</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="sub" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="sub">
+                        <!-- <label for="sub" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="sub"> -->
+                        {{ form.nomdepot.label_tag }}
+                        {{form.nomdepot}}
                     </div>
-                    <div class="deadline-form">
-                        <form>
-                            <div class="row g-3 mb-3">
-                              <div class="col">
-                                <label for="depone" class="form-label">Assign Name</label>
-                                <input type="text" class="form-control" id="depone">
-                              </div>
-                              <div class="col">
-                                <label for="deptwo" class="form-label">Creted Date</label>
-                                <input type="date" class="form-control" id="deptwo">
-                              </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="mb-3">
-                        <label  class="form-label">Status</label>
-                        <select class="form-select">
-                            <option selected>In Progress</option>
-                            <option value="1">Completed</option>
-                            <option value="2">Wating</option>
-                            <option value="3">Decline</option>
-                        </select>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
                     <button type="submit" class="btn btn-primary">sent</button>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
 
- {% endcomment %}
 
 
-{% endblock conteneur %}
+</form>
