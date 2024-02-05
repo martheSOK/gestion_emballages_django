@@ -7,10 +7,10 @@ class User(models.Model):
     prenom=models.CharField(max_length=50,null=True)
     contact=models.IntegerField( null=True)
     adresse=models.CharField(max_length=50, null=True)
-
+    status=models.CharField(max_length=50, null=True)
 
     def __str__(self):
-        return self.nom + self.prenom + str(self.contact) + self.adresse
+        return self.nom + self.prenom + str(self.contact) + self.adresse + self.statu
     
     class Meta:
         abstract=True

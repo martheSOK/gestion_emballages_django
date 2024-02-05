@@ -7,3 +7,4 @@ from .models import *
 
 admin.site.register(Depot)
 admin.site.register(Fournisseur)
+admin.site.register(Personne)

@@ -9,3 +9,17 @@ class DepotForm(forms.ModelForm):
     class Meta:
         model=Depot
         fields='__all__'
+
+
+
+class FournisseurForm(forms.ModelForm):
+    pass
+    class Meta:
+        model=Fournisseur
+        fields='__all__'
+
+class UserForm(forms.ModelForm):
+    pass
+    class Meta:
+        model=Personne
+        fields='__all__'

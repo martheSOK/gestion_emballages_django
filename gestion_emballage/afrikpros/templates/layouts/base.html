@@ -1,0 +1,184 @@
+{% load static %}
+{% load django_browser_reload %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            Alice Bot
+        </title>
+        <meta charset="utf-8" />
+        <meta name="description"
+            content="Open admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
+        <meta name="keywords"
+            content="Open theme, bootstrap, bootstrap 5, admin themes, laravel, free admin themes, bootstrap admin, bootstrap dashboard" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title"
+            content="Open HTML Pro- Bootstrap 5 HTML & Laravel Multipurpose Admin Dashboard Theme - Open HTML Pro by KeenThemes" />
+        <meta property="og:url" content="https://keenthemes.com/products/open-html-pro" />
+        <meta property="og:site_name" content="Open HTML Pro by Keenthemes" />
+        <link rel="canonical" href="https://preview.keenthemes.com/open-html-pro" />
+        <link rel="shortcut icon" href="{% static  'assets/media/logos/favicon.ico' %}" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" /> 
+
+        <link href="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet"type="text/css" />
+        <link href="{% static 'assets/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+
+
+        <link href="{% static 'assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+ 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'UA-37564768-1');
+        </script>
+        
+        <script>
+            // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
+            if (window.top != window.self) {
+                window.top.location.replace(window.self.location.href);
+            }
+        {% comment %} </script>
+        <style>
+            label {
+                color: black;
+            }
+        </style>
+        <style>
+            .primary {
+                background: #b49e1e;
+                color: aliceblue;
+            }
+
+            .my-btn-primary {
+                background: #b49e1e;
+                color: aliceblue;
+                padding: 12px;
+                border: 0px;
+                border-radius: 10px;
+            }
+
+            .my-btn-primary:hover {
+                background: #dbc12c;
+                color: aliceblue;
+            }
+            .errorlist {
+                color: red;
+            }
+            
+        </style> {% endcomment %}
+    </head>
+    <body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true"
+        data-kt-app-toolbar-enabled="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true"
+        data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true"
+        data-kt-app-sidebar-push-footer="true" class="app-default">
+     
+        <script>
+            var defaultThemeMode = "light";
+            var themeMode;
+
+            if (document.documentElement) {
+                if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                    themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+                } else {
+                    if (localStorage.getItem("data-bs-theme") !== null) {
+                        themeMode = localStorage.getItem("data-bs-theme");
+                    } else {
+                        themeMode = defaultThemeMode;
+                    }
+                }
+
+                if (themeMode === "system") {
+                    themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+
+                document.documentElement.setAttribute("data-bs-theme", themeMode);
+            }            
+        </script>
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        
+        <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+            <!--begin::Page-->
+            <div class="app-page  flex-column flex-column-fluid " id="kt_app_page">
+                <!--begin::Header-->
+                <div id="kt_app_header" class="app-header " data-kt-sticky="true"
+                    data-kt-sticky-activate="{default: true, lg: true}" data-kt-sticky-name="app-header-minimize"
+                    data-kt-sticky-offset="{default: '200px', lg: '300px'}" data-kt-sticky-animation="false">
+
+                    <!--begin::Header container-->
+                    <div class="app-container  container-fluid d-flex align-items-stretch flex-stack "
+                        id="kt_app_header_container">
+                        <!--begin::Sidebar toggle-->
+                        <div class="d-flex align-items-center d-block d-lg-none ms-n3" title="Show sidebar menu">
+                            <div class="btn btn-icon btn-color-gray-600 btn-active-color-primary w-35px h-35px me-1"
+                                id="kt_app_sidebar_mobile_toggle">
+                                <i class="ki-duotone ki-abstract-14 fs-2"><span class="path1"></span><span
+                                        class="path2"></span></i>
+                            </div>
+
+                            <!--begin::Logo image-->
+                            <a href="/caisse/">
+                                <img alt="Logo" src="{% static 'assets/media/logos/logo.png' %}"
+                                class="app-sidebar-logo-default" width="70px"/>
+                            </a>
+                            <!--end::Logo image-->
+                        </div>
+                        <!--end::Sidebar toggle-->
+                        <!--begin::Navbar-->
+                        {% include './navbar.html' %}
+                        <!--end::Navbar-->
+                    </div>
+                    <!--end::Header container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Wrapper-->
+                <div class="app-wrapper  flex-column flex-row-fluid" id="kt_app_wrapper">
+                    <!--begin::Toolbar-->
+                    <div id="kt_app_toolbar" class="app-toolbar ">
+                        <!--begin::Toolbar container-->
+                        <div id="kt_app_toolbar_container"
+                            class="app-container  container-fluid d-flex flex-lg-column py-3 py-lg-6 ">
+                            <!--begin::Page title-->
+                            <div class="page-title d-flex align-items-center gap-1 me-3" data-kt-swapper="true"
+                                data-kt-swapper-mode="{default: 'prepend', lg: 'prepend'}"
+                                data-kt-swapper-parent="{default: '#kt_app_content_container', lg: '#kt_app_header_wrapper'}">
+                                <!--begin::Title-->
+                                <h1 class="text-gray-900 fw-bolder fs-2x mb-1 lh-1">
+                                    {% block title %}{% endblock title %}    
+                                </h1>
+                            </div>
+                            <div class="app-toolbar-container-separator separator d-none d-lg-flex"></div>
+                        </div>
+                        <!--end::Toolbar container-->
+                    </div>
+                    <!--end::Toolbar-->
+                    <!--begin::Sidebar-->
+                    {% include './sidebar.html' %}
+                    <!--end::Sidebar-->
+                    <div class="app-main flex-column flex-row-fluid  p-18">
+                        {% block conteneur %}{% endblock conteneur %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+        <script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
+        <script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+        <script src="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+        <script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+        <script src="{% static 'assets/plugins/custom/other/ckeditor.js' %}"></script>
+        <script src="{% static 'assets/js/widgets.bundle.js' %}"></script>
+        <script src="{% static 'assets/js/custom/widgets.js' %}"></script>
+        <script src="{% static 'assets/js/custom/apps/user-management/users/list/table.js' %}"></script>
+        {% comment %} {% django_browser_reload_script %} {% endcomment %}
+        
+        {% block js %}{% endblock js %}
+    </body>
+</html>
