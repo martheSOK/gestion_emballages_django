@@ -51,8 +51,8 @@ class Emballage(models.Model):
     quantite=models.IntegerField(null=True)
     echange_externe=models.ManyToManyField(Fournisseur)
 
-    def __str__(self):
-        return self.designation + self.quantite
+    # def __str__(self):
+    #     return self.designation + self.quantite
     
 
 class Personne(User):

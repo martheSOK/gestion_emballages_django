@@ -49,3 +49,46 @@ def delete_depot(request, depot_id):
     return redirect("afrikpros:liste_depot")
 
 
+
+
+
+def liste_embalage(request):
+    liste_embalage=Emballage.objects.all()
+    return render( request,"embalage/liste_embalage.html",locals())
+
+
+def manage_embalage(request, embalage_id=None):
+    if embalage_id:
+      
+        embalage = get_object_or_404(Emballage, pk=embalage_id)
+        fournisseurs_associes = embalage.echange_externe.all()
+        fournisseurs = Fournisseur.objects.all()
+        print(embalage)
+        if request.method == "POST":
+            form = EmbalageForm(request.POST, instance=embalage)
+            if form.is_valid():
+                form.save()
+                return redirect("afrikpros:liste_embalage")
+        else:
+            
+            form = EmbalageForm(instance=embalage)
+            
+            
+    else:
+        # Add new depot
+        if request.method == "POST":
+            form = EmbalageForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect("afrikpros:liste_embalage")
+        else:
+            form = EmbalageForm()
+
+    liste_embalage=Emballage.objects.all()
+    return render( request,"embalage/liste_embalage.html",locals())
+
+
+def delete_embalage(request, embalage_id):
+    embalage = Emballage.objects.get(pk=embalage_id)
+    embalage.delete()    
+    return redirect("afrikpros:liste_embalage")
