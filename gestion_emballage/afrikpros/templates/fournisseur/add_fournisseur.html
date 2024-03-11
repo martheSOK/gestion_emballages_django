@@ -1,0 +1,29 @@
+<form action="{% if fournisseur.id %}{% url 'afrikpros:update_fournisseur' fournisseur.id %}{% else %}# {% endif %}" method="post">
+    {% csrf_token %}
+    <div class="modal fade" id="add_fournisseur" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="leaveaddLabel">ajouter fournisseur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <!-- <label for="sub" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="sub"> -->
+                        {{ form.nom_fournisseur.label_tag }}
+                        {{form.nom_fournisseur}} 
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>

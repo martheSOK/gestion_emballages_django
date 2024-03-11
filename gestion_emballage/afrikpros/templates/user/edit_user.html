@@ -1,0 +1,51 @@
+<form action="{% if user.id %}{% url 'afrikpros:update_user' user.id %}{% else %}# {% endif %}" method="post">
+    {% csrf_token %}
+<div class="modal fade" id="edituser{{ user.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel">Editer user</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="nom" class="form-label">Nom User</label>
+                        <input type="text" class="form-control" id="nom" name="nom" value="{{ user.nom }}">   
+                </div>
+                <div class="mb-3">
+                    <label for="prenom" class="form-label">Prenom User</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" value="{{ user.prenom }}">   
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Contact User</label>
+                        <input type="text" class="form-control" id="contact" name="contact" value="{{ user.contact }}">   
+                </div>
+                <div class="mb-3">
+                    <label for="adresse" class="form-label">Adress User</label>
+                        <input type="text" class="form-control" id="adresse" name="adresse" value="{{ user.adresse }}">   
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label"> User status</label>
+                        <input type="text" class="form-control" id="status" name="status" value="{{ user.status }}">   
+                </div>
+                <!--div>
+                    {% for depot in depots %} 
+                        <select name="depot" id="depot">
+                            <option value="">Please choose an option</option>
+                            <option value={{depot.id}}>{{depot.nomdepot}}</option>
+                        </select>
+                    {% endfor %}
+                </div-->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                <button type="submit" class="btn btn-primary">sent</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</form>

@@ -10,8 +10,23 @@ class DepotForm(forms.ModelForm):
         model=Depot
         fields='__all__'
 
-class EmbalageForm(forms.ModelForm):
+
+
+class FournisseurForm(forms.ModelForm):
     pass
     class Meta:
-        model=Emballage
+        model=Fournisseur
         fields='__all__'
+
+class UserForm(forms.ModelForm):
+    pass
+    class Meta:
+        model=Personnel
+        fields='__all__'
+
+
+class EmbalageForm(forms.ModelForm):
+
+    class Meta:
+        model = Emballage
+        fields ='__all__'

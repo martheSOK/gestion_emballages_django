@@ -1,0 +1,53 @@
+<form action="{% if user.id %}{% url 'afrikpros:update_user' user.id %}{% else %}# {% endif %}" method="post">
+    {% csrf_token %}
+    <div class="modal fade" id="add_user" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title  fw-bold" id="leaveaddLabel">ajouter user</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                    
+                        {{ form.nom.label_tag }}
+                        {{form.nom}} 
+                    </div>
+                    <div class="mb-3">
+
+                        {{ form.prenom.label_tag }}
+                        {{form.prenom}} 
+                    </div>
+                    <div class="mb-3">
+                        
+                        {{ form.contact.label_tag }}
+                        {{form.contact}} 
+                    </div>
+                    <div class="mb-3">
+                        
+                        {{ form.adresse.label_tag }}
+                        {{form.adresse}} 
+                    </div>
+                    <div class="mb-3">
+                        
+                        {{ form.status.label_tag }}
+                        {{form.status}} 
+                    </div>
+
+                   
+                </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                    <button type="submit" class="btn btn-primary">sent</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>

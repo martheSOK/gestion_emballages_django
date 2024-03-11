@@ -1,5 +1,5 @@
 
-<form action="{% if embalage.id %}{% url 'afrikpros:update_embalage' embalage.id %}{% else %}# {% endif %}" method="post">
+<form action="{% if embalage.id %}{% url 'afrikpros:update_emballage' embalage.id %}{% else %}# {% endif %}" method="post">
     {% csrf_token %}
 <div class="modal fade" id="tickadd" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
