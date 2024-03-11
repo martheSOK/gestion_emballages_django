@@ -53,7 +53,11 @@ class Emballage(models.Model):
 
     # def __str__(self):
     #     return self.designation + self.quantite
-    
+class EchangeExterne(models.Model):
+    fournisseur = models.ForeignKey(Fournisseur, on_delete=models.CASCADE)
+    emballage = models.ForeignKey(Emballage, on_delete=models.CASCADE)
+    # Autres champs nécessaires pour la relation
+  
 
 class Personne(User):
     depot=models.ForeignKey(Depot, on_delete=models.CASCADE, null=True)
