@@ -1,0 +1,40 @@
+<div class="modal fade" id="editembalage{{embalage.id}}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel">Editer depot</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="id_nomdepot" class="form-label">Désignation</label>
+                        <input type="text" class="form-control" id="id_designation" name="designation" value="{{ embalage.designation}}">
+                    
+                        <label for="id_nomdepot" class="form-label">Quantité</label>
+                        <input type="number" class="form-control" id="id_quantite" name="quantite" value="{{embalage.quantite }}">
+
+                        <div class="mb-3">
+                            <label class="form-label">Fournisseur</label>
+                            <select class="form-select" multiple>
+                                {% for fournisseur in fournisseurs %}
+                                    {% if fournisseur in fournisseurs_associes %}
+                                        <option value="{{ fournisseur.id }}" selected>{{ fournisseur.nom }}</option>
+                                    {% else %}
+                                        <option value="{{ fournisseur.id }}">{{ fournisseur.nom }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                <button type="submit" class="btn btn-primary">sent</button>
+            </div>
+        </div>
+    </div>
+</div>
+

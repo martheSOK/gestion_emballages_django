@@ -21,5 +21,12 @@ class FournisseurForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     pass
     class Meta:
-        model=Personne
+        model=Personnel
         fields='__all__'
+
+
+class EmbalageForm(forms.ModelForm):
+
+    class Meta:
+        model = Emballage
+        fields ='__all__'

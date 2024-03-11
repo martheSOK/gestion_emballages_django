@@ -113,7 +113,7 @@ def liste_users(request):
 def liste_users(request, user_id=None):
     if user_id:
         # update existing user
-        user = get_object_or_404(Personne, pk=user_id)
+        user = get_object_or_404(Personnel, pk=user_id)
         if request.method == "POST":
             form = UserForm(request.POST, instance=user)
             if form.is_valid():
@@ -134,7 +134,7 @@ def liste_users(request, user_id=None):
             form = UserForm()
             print(form)
 
-    listeuser =Personne.objects.all()
+    listeuser =Personnel.objects.all()
     depots=Depot.objects.all()
     return render(request, "user/liste_users.html", {"form": form, "listeuser": listeuser,"depots":depots})
 
@@ -148,3 +148,48 @@ def delete_user(request, user_id):
 
 
 
+
+
+
+def liste_embalage(request):
+    liste_embalage=Emballage.objects.all()
+    return render( request,"embalage/liste_embalage.html",locals())
+
+
+def manage_embalage(request, embalage_id=None):
+    if embalage_id:
+      
+        embalage = get_object_or_404(Emballage, pk=embalage_id)
+        fournisseurs_associes = embalage.echange_externe.all()
+        fournisseurs = Fournisseur.objects.all()
+        print(embalage)
+        if request.method == "POST":
+            form = EmbalageForm(request.POST, instance=embalage)
+            if form.is_valid():
+                form.save()
+                return redirect("afrikpros:liste_embalage")
+                print(forms)
+        else:
+            
+            form = EmbalageForm(instance=embalage)
+            print(forms)
+            
+    else:
+        # Add new emballage
+        if request.method == "POST":
+            form = EmbalageForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect("afrikpros:liste_embalage")
+        else:
+            form = EmbalageForm()
+
+    liste_embalage=Emballage.objects.all()
+ 
+    return render( request,"embalage/liste_embalage.html",locals())
+
+
+def delete_embalage(request, embalage_id):
+    embalage = Emballage.objects.get(pk=embalage_id)
+    embalage.delete()    
+    return redirect("afrikpros:liste_embalage")

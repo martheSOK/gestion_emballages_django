@@ -37,11 +37,18 @@ urlpatterns = [
 #**********user*****************
        path('liste_users/', views.liste_users, name='liste_users'),
 
-       # URL for updating an existing user
+       # URL for updating and delete an existing user
        path('liste_users/<int:user_id>/',  views.liste_users, name='update_user'),
        path('delete_user/<int:user_id>/',  views.delete_user, name='delete_user'),
 
-     
+
+#*********emballages*********
+       path('liste_emballages/', views.liste_embalage, name='liste_embalage'),
+
+       # URL for updating and delete an existing user
+       path('liste_emballages/<int:embalage_id>/',  views.manage_embalage, name='update_emballage'),
+       path('delete_emballage/<int:embalage_id>/',  views.delete_embalage, name='delete_embalage'),
+
  ]
 
 
